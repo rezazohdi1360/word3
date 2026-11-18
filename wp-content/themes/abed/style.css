@@ -1,0 +1,19 @@
+/*
+Theme Name: Abed (قالب عابد)
+Theme URI: https://abedherb.com/
+Author: Abed Herb
+Description: قالب فروشگاهی راست‌به‌چپ برای فروشگاه عمده گیاهان دارویی و ادویه (ووکامرس). بازسازی‌شده از روی خروجی سایت abedherb.com؛ شامل هدر و مگامنو، جستجوی آنی، لیست خرید کشویی، قیمت پلکانی، سفارش گروهی و فرم مشاوره تلفنی.
+Version: 1.0.0
+Requires at least: 6.3
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: abed
+Tags: rtl-language-support, e-commerce, custom-menu, custom-logo, translation-ready, persian
+*/
+
+/*
+ * استایل‌های اصلی قالب در پوشه assets/css قرار دارند (base.css، content.css و ...)
+ * و توسط functions.php بارگذاری می‌شوند. رنگ‌ها و اندازه‌ها را در بخش «توکن‌ها»ی
+ * assets/css/base.css تغییر دهید. تغییرات شخصی را می‌توانید همین‌جا بنویسید.
+ */
