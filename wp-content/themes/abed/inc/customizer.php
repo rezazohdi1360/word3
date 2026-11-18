@@ -10,6 +10,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * مقدار پیش‌فرض همه تنظیمات قالب.
+ *
+ * @return array
+ */
+function abed_defaults() {
+	return array(
+		'abed_tagline'          => 'پخش عمده عطاری و ادویه',
+		'abed_ticker'           => "تأیید لحظه‌ای قیمت و موجودی در ۳۰ ثانیه\nقیمت‌ها به‌صورت روزانه به‌روزرسانی می‌شوند\nامکان پرداخت اینترنتی از درگاه به‌پرداخت ملت",
+		'abed_hero_eyebrow'     => 'فروشگاه عابد',
+		'abed_hero_title'       => 'پخش عمده ادویه، گیاهان دارویی و محصولات عطاری',
+		'abed_hero_lead'        => 'قیمت‌های روز، تخفیف پلکانی برای خرید عمده و ارسال به سراسر کشور',
+		'abed_footer_about'     => 'فروشگاه عابد با بیش از ۶۰ سال سابقه خانوادگی در زمینه محصولات عطاری، شامل گیاهان دارویی، ادویه‌جات و انواع بذر، در خدمت همکاران محترم است.',
+		'abed_address'          => 'ایران، مشهد، مصلی ۲، مقابل زینبیون 6، پلاک ۶۵',
+		'abed_phone_sales'      => '09151002298',
+		'abed_phone_office'     => '09150222298',
+		'abed_phone_accounting' => '09150552298',
+		'abed_phone_support'    => '09150992298',
+		'abed_social_bale'      => 'https://ble.ir/abedherb',
+		'abed_social_eitaa'     => 'https://eitaa.com/abedherb',
+		'abed_social_splus'     => 'https://splus.ir/abedherb',
+		'abed_social_rubika'    => 'https://rubika.ir/abedherb',
+		'abed_popular_searches' => 'فلفل سیاه،زردچوبه،جوش شیرین،فلفل قرمز،هل اکبر',
+		'abed_enamad_code'      => '',
+		'abed_enamad_img'       => '',
+		'abed_store_image'      => '',
+		'abed_trust_lead'       => "۶۰ سال،<br>یا ۸۰ سال!<br>نظر شما<br>مهم‌تر از این اعداد است…",
+	);
+}
+
+/**
+ * خواندن یک تنظیم قالب همراه با مقدار پیش‌فرض.
+ *
+ * @param string $key Setting id.
+ * @return string
+ */
+function abed_mod( $key ) {
+	$d = abed_defaults();
+	return get_theme_mod( $key, isset( $d[ $key ] ) ? $d[ $key ] : '' );
+}
+
+/**
  * @param WP_Customize_Manager $wp_customize Manager.
  */
 function abed_customize_register( $wp_customize ) {

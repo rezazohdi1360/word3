@@ -51,12 +51,12 @@ function abed_fa_digits( $s ) {
  */
 function abed_contact() {
 	return array(
-		'address' => get_theme_mod( 'abed_address', 'ایران، مشهد، مصلی ۲، مقابل زینبیون 6، پلاک ۶۵' ),
+		'address' => abed_mod( 'abed_address' ),
 		'phones'  => array(
-			array( 'label' => 'واحد فروش', 'tel' => get_theme_mod( 'abed_phone_sales', '09151002298' ) ),
-			array( 'label' => 'واحد اداری', 'tel' => get_theme_mod( 'abed_phone_office', '09150222298' ) ),
-			array( 'label' => 'حسابداری', 'tel' => get_theme_mod( 'abed_phone_accounting', '09150552298' ) ),
-			array( 'label' => 'ارتباط با مشتری', 'tel' => get_theme_mod( 'abed_phone_support', '09150992298' ) ),
+			array( 'label' => 'واحد فروش', 'tel' => abed_mod( 'abed_phone_sales' ) ),
+			array( 'label' => 'واحد اداری', 'tel' => abed_mod( 'abed_phone_office' ) ),
+			array( 'label' => 'حسابداری', 'tel' => abed_mod( 'abed_phone_accounting' ) ),
+			array( 'label' => 'ارتباط با مشتری', 'tel' => abed_mod( 'abed_phone_support' ) ),
 		),
 	);
 }
@@ -91,13 +91,13 @@ function abed_tel_text( $tel ) {
  * @return array label => url
  */
 function abed_socials() {
-	$wa = preg_replace( '/\D+/', '', abed_tel_href( get_theme_mod( 'abed_phone_sales', '09151002298' ) ) );
+	$wa = preg_replace( '/\D+/', '', abed_tel_href( abed_mod( 'abed_phone_sales' ) ) );
 	return array(
 		'واتس‌اپ'    => 'https://wa.me/' . $wa,
-		'بله'        => get_theme_mod( 'abed_social_bale', 'https://ble.ir/abedherb' ),
-		'ایتا'       => get_theme_mod( 'abed_social_eitaa', 'https://eitaa.com/abedherb' ),
-		'سروش پلاس'  => get_theme_mod( 'abed_social_splus', 'https://splus.ir/abedherb' ),
-		'روبیکا'     => get_theme_mod( 'abed_social_rubika', 'https://rubika.ir/abedherb' ),
+		'بله'        => abed_mod( 'abed_social_bale' ),
+		'ایتا'       => abed_mod( 'abed_social_eitaa' ),
+		'سروش پلاس'  => abed_mod( 'abed_social_splus' ),
+		'روبیکا'     => abed_mod( 'abed_social_rubika' ),
 	);
 }
 
@@ -112,7 +112,7 @@ function abed_logo( $class = '', $tagline = true ) {
 	$img     = $logo_id
 		? wp_get_attachment_image( $logo_id, array( 56, 56 ), false, array( 'class' => 'ab-logo__img', 'alt' => get_bloginfo( 'name' ) ) )
 		: '<img class="ab-logo__img" src="' . esc_url( abed_img( 'Abedherb-logo.svg' ) ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" width="56" height="56" decoding="async">';
-	$tag     = get_theme_mod( 'abed_tagline', 'پخش عمده عطاری و ادویه' );
+	$tag     = abed_mod( 'abed_tagline' );
 
 	echo '<a class="ab-logo ' . esc_attr( $class ) . '" href="' . esc_url( home_url( '/' ) ) . '" rel="home">';
 	echo $img; // phpcs:ignore WordPress.Security.EscapeOutput
@@ -196,7 +196,8 @@ function abed_cta() {
 /**
  * منوی پیش‌فرض وقتی منویی در پیشخوان تعیین نشده است.
  */
-function abed_menu_fallback() {
+function abed_menu_fallback( $args = array() ) {
+	$class = ( is_array( $args ) && ! empty( $args['menu_class'] ) ) ? $args['menu_class'] : 'ab-menu';
 	$links = array(
 		array( __( 'خانه', 'abed' ), home_url( '/' ) ),
 	);
@@ -210,7 +211,7 @@ function abed_menu_fallback() {
 	$links[] = array( __( 'درباره ما', 'abed' ), home_url( '/about-us/' ) );
 	$links[] = array( __( 'تماس با ما', 'abed' ), home_url( '/contact/' ) );
 
-	echo '<ul class="ab-menu ab-footer__links">';
+	echo '<ul class="' . esc_attr( $class ) . '">';
 	foreach ( $links as $l ) {
 		echo '<li><a href="' . esc_url( $l[1] ) . '">' . esc_html( $l[0] ) . '</a></li>';
 	}

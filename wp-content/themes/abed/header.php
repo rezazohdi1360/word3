@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $contact = abed_contact();
 $sales   = $contact['phones'][0]['tel'];
-$ticker  = array_filter( array_map( 'trim', explode( "\n", (string) get_theme_mod( 'abed_ticker', '' ) ) ) );
+$ticker  = array_filter( array_map( 'trim', explode( "\n", (string) abed_mod( 'abed_ticker' ) ) ) );
 $has_wc  = class_exists( 'WooCommerce' );
 
 // دسته‌بندی‌های اصلی و زیردسته‌ها برای مگامنو و منوی موبایل.
@@ -139,8 +139,8 @@ if ( $has_wc ) {
 			array(
 				'theme_location' => 'primary',
 				'container'      => false,
-				'menu_class'     => 'ab-offcanvas__links',
-				'fallback_cb'    => false,
+				'menu_class'     => 'ab-mmenu',
+				'fallback_cb'    => 'abed_menu_fallback',
 				'depth'          => 1,
 			)
 		);

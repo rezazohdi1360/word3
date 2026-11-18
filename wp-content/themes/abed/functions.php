@@ -124,7 +124,7 @@ function abed_js_config() {
 		'afterAdd'    => 'stay',
 		'checkoutUrl' => $wc ? wc_get_checkout_url() : '',
 		'sep'         => '.',
-		'popular'     => array_values( array_filter( array_map( 'trim', explode( '،', (string) get_theme_mod( 'abed_popular_searches', 'فلفل سیاه،زردچوبه،جوش شیرین،فلفل قرمز،هل اکبر' ) ) ) ) ),
+		'popular'     => array_values( array_filter( array_map( 'trim', explode( '،', (string) abed_mod( 'abed_popular_searches' ) ) ) ) ),
 		'protect'     => array(
 			'src'  => 0,
 			'img'  => 0,

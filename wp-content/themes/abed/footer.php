@@ -26,7 +26,7 @@ if ( $has_wc ) {
 <footer class="ab-footer"><div class="ab-container ab-footer__grid">
 	<section class="ab-footer__col ab-footer__about">
 		<?php abed_logo( 'ab-logo--footer' ); ?>
-		<p><?php echo esc_html( get_theme_mod( 'abed_footer_about', '' ) ); ?></p>
+		<p><?php echo esc_html( abed_mod( 'abed_footer_about' ) ); ?></p>
 		<ul class="ab-socials">
 			<?php foreach ( abed_socials() as $label => $url ) : ?>
 				<?php if ( $url ) : ?><li><a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener"><?php echo abed_icon( 'chat' ); // phpcs:ignore ?><?php echo esc_html( $label ); ?></a></li><?php endif; ?>
@@ -66,8 +66,8 @@ if ( $has_wc ) {
 				<?php endforeach; ?>
 			</ul>
 		</address>
-		<?php if ( get_theme_mod( 'abed_enamad_img' ) ) : ?>
-		<div class="ab-footer__trust"><a referrerpolicy="origin" target="_blank" rel="noopener" href="https://trustseal.enamad.ir/"><img loading="lazy" decoding="async" referrerpolicy="origin" src="<?php echo esc_url( get_theme_mod( 'abed_enamad_img' ) ); ?>" alt="<?php esc_attr_e( 'نماد اعتماد الکترونیکی', 'abed' ); ?>" width="125" height="136" style="cursor:pointer" code="<?php echo esc_attr( get_theme_mod( 'abed_enamad_code', '' ) ); ?>"></a></div>
+		<?php if ( abed_mod( 'abed_enamad_img' ) ) : ?>
+		<div class="ab-footer__trust"><a referrerpolicy="origin" target="_blank" rel="noopener" href="https://trustseal.enamad.ir/"><img loading="lazy" decoding="async" referrerpolicy="origin" src="<?php echo esc_url( abed_mod( 'abed_enamad_img' ) ); ?>" alt="<?php esc_attr_e( 'نماد اعتماد الکترونیکی', 'abed' ); ?>" width="125" height="136" style="cursor:pointer" code="<?php echo esc_attr( abed_mod( 'abed_enamad_code' ) ); ?>"></a></div>
 		<?php endif; ?>
 	</section>
 </div>

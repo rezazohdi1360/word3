@@ -30,9 +30,9 @@ if ( $has_wc ) {
 			<img width="1616" height="656" src="<?php echo esc_url( abed_img( 'Abed-First-Banner.webp' ) ); ?>" class="ab-hero__pimg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" loading="eager" fetchpriority="high" decoding="async">
 		</picture>
 		<div class="ab-hero__text">
-			<p class="ab-hero__eyebrow"><?php echo abed_icon( 'leaf' ); // phpcs:ignore ?> <?php echo esc_html( get_theme_mod( 'abed_hero_eyebrow', 'فروشگاه عابد' ) ); ?></p>
-			<h1 class="ab-hero__title"><?php echo esc_html( get_theme_mod( 'abed_hero_title', 'پخش عمده ادویه، گیاهان دارویی و محصولات عطاری' ) ); ?></h1>
-			<p class="ab-hero__lead"><?php echo esc_html( get_theme_mod( 'abed_hero_lead', 'قیمت‌های روز، تخفیف پلکانی برای خرید عمده و ارسال به سراسر کشور' ) ); ?></p>
+			<p class="ab-hero__eyebrow"><?php echo abed_icon( 'leaf' ); // phpcs:ignore ?> <?php echo esc_html( abed_mod( 'abed_hero_eyebrow' ) ); ?></p>
+			<h1 class="ab-hero__title"><?php echo esc_html( abed_mod( 'abed_hero_title' ) ); ?></h1>
+			<p class="ab-hero__lead"><?php echo esc_html( abed_mod( 'abed_hero_lead' ) ); ?></p>
 			<?php get_template_part( 'template-parts/search-form', null, array( 'id' => 'hero' ) ); ?>
 			<div class="ab-hero__actions">
 				<a class="ab-btn ab-btn--primary" href="<?php echo esc_url( $shop_url ); ?>"><?php esc_html_e( 'مشاهده همه محصولات', 'abed' ); ?> <?php echo abed_icon( 'arrow-left' ); // phpcs:ignore ?></a>
@@ -85,7 +85,7 @@ if ( $has_wc ) {
 		</picture>
 		<div class="ab-trust__text">
 			<h2 class="ab-trust__title"><?php esc_html_e( 'اعتبار ما شمایید', 'abed' ); ?></h2>
-			<p class="ab-trust__lead"><?php echo wp_kses( get_theme_mod( 'abed_trust_lead', "۶۰ سال،<br>یا ۸۰ سال!<br>نظر شما<br>مهم‌تر از این اعداد است…" ), array( 'br' => array() ) ); ?></p>
+			<p class="ab-trust__lead"><?php echo wp_kses( abed_mod( 'abed_trust_lead' ), array( 'br' => array() ) ); ?></p>
 			<a class="ab-btn ab-btn--primary" href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'درباره ما', 'abed' ); ?> <?php echo abed_icon( 'arrow-left' ); // phpcs:ignore ?></a>
 		</div>
 	</div></div></section>
@@ -168,8 +168,8 @@ if ( $has_wc ) {
 	</div></section>
 
 	<section class="ab-section ab-store"><div class="ab-container ab-store__in">
-		<?php if ( get_theme_mod( 'abed_store_image' ) ) : ?>
-		<figure class="ab-store__img"><img src="<?php echo esc_url( get_theme_mod( 'abed_store_image' ) ); ?>" width="1366" height="768" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" loading="lazy" decoding="async"></figure>
+		<?php if ( abed_mod( 'abed_store_image' ) ) : ?>
+		<figure class="ab-store__img"><img src="<?php echo esc_url( abed_mod( 'abed_store_image' ) ); ?>" width="1366" height="768" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" loading="lazy" decoding="async"></figure>
 		<?php endif; ?>
 		<div class="ab-store__text">
 			<h2 class="ab-store__title"><?php echo esc_html( sprintf( /* translators: %s: site */ __( '%s در مشهد', 'abed' ), get_bloginfo( 'name' ) ) ); ?></h2>
